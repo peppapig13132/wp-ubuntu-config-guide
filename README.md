@@ -1,9 +1,9 @@
-# Guide to Installing WordPress on Ubuntu (Remote Server)
+# Guide to Installing WordPress on Ubuntu
 
 - Parameters: 	4 vCPU, 8 GB RAM, 90 GB Disk
 - ОS: 			    Ubuntu 22.04
 
-## Install PHP
+## PHP
 
 ```bash
 sudo apt update
@@ -42,4 +42,35 @@ sudo systemctl restart apache2
 Install additional PHP modules you may need
 ```bash
 sudo apt install php-curl php-json php-cgi php-gd php-mbstring php-xml php-zip
+```
+
+## MySQL
+
+```bash
+sudo apt install mysql-server
+```
+
+After installation, it’s recommended to run a security script that comes with MySQL to improve its security
+```bash
+sudo mysql_secure_installation
+```
+
+Check MySQL Service
+```bash
+sudo systemctl status mysql
+```
+
+Start MySQL Service
+```bash
+sudo systemctl start mysql
+```
+
+Enable MySQL to Start on Boot
+```bash
+sudo systemctl enable mysql
+```
+
+Log in to MySQL
+```bash
+sudo mysql -u root -p
 ```
